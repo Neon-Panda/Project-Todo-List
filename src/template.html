@@ -8,16 +8,33 @@
 <body>
     <nav id="sidebar" class="sidebar-nav">
         <section id="tasks" class="sidebar-task">
-            <button class="show-all"></button>
-            <button class="show-completed"></button>
+            <h2 class="nav-title">Tasks</h2>
+            <button class="sidebar-button">
+                <img src="./svg/all.svg" alt="show all task">
+                <p>All</p>
+                <p class="count">0</p>
+            </button>
+            <button class="sidebar-button">
+                <img src="./svg/completed.svg" alt="show completed task">
+                <p>Completed</p>
+                <p class="count">0</p>
+            </button>
         </section>
         <section id="projects" class="sidebar-projects">
-            <button class="project-default"></button>
-            <button class="project-add"></button>
+            <h2 class="nav-title">Projects</h2>
+            <button class="sidebar-button">
+                <img src="svg/project.svg" alt="default project">
+                <p>Default</p>
+                <p class="count">0</p>
+            </button>
+            <button class="sidebar-button">
+                <img src="svg/plus.svg" alt="add new project">
+                <p>Add Project</p>
+            </button>
         </section>
     </nav>
     <section id="content" class="content-section">
-        <header id="intro" class="header-title"></header>
+        <h1 id="intro" class="header-title"></h1>
         <section id="content-projects" class="projects-display"></section>
     </section>
 </body>
