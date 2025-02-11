@@ -34,8 +34,28 @@
         </section>
     </nav>
     <section id="content" class="content-section">
-        <h1 id="intro" class="header-title"></h1>
-        <section id="content-projects" class="projects-display"></section>
+        <h1 id="intro" class="header-title">Example title</h1>
+        <button id="add-task" class="add-button">
+            <img src="svg/plus.svg" alt="add task">
+        </button>
+        <section id="content-projects" class="projects-display">
+            <ul class="task-example">
+                <li class="task-item">
+                    <input type="checkbox" name="" id="toggle" class="task-input">
+                    <label for="toggle" class="task-visisble">
+                        <span class="task-title">title</span>
+                        <span class="task-due">Due-date</span>
+                        <div class="icons">
+                            <button>Delete</button>
+                            <button>Edit</button>
+                        </div>
+                    </label>
+                    <div class="task-expand">
+                        <span>Lorem ipsum dolor sit amet.</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
     </section>
 </body>
 </html>
