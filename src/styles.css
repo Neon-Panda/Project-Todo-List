@@ -89,10 +89,12 @@
     background-color: rgba(229, 250, 210, 0.808);
     border: none;
     padding: 0.5rem 1rem;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0 , 0.1);
   }
 
   .sidebar-button:hover {
     cursor: pointer;
+    background-color: rgba(229, 250, 210, 0.616);
   }
 
   .count {
@@ -134,7 +136,8 @@
   }
 
   .add-button:hover {
-   cursor: pointer; 
+   cursor: pointer;
+   background-color: rgba(229, 250, 210, 0.616); 
   }
 
   .projects-display {
