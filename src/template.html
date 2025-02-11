@@ -6,7 +6,16 @@
     <title>Project: Todo List</title>
 </head>
 <body>
-    <nav id="sidebar" class="sidebar-nav"></nav>
+    <nav id="sidebar" class="sidebar-nav">
+        <section id="tasks" class="sidebar-task">
+            <button class="show-all"></button>
+            <button class="show-completed"></button>
+        </section>
+        <section id="projects" class="sidebar-projects">
+            <button class="project-default"></button>
+            <button class="project-add"></button>
+        </section>
+    </nav>
     <section id="content" class="content-section">
         <header id="intro" class="header-title"></header>
         <section id="content-projects" class="projects-display"></section>
