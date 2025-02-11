@@ -204,3 +204,13 @@
   .task-input:checked ~ .task-visisble > .icons::before {
     transform: rotate(0.5turn);
   }
+
+  .modal {
+    background-color: rgba(230, 248, 214, 0.808);
+    border: none;
+  }
+
+  fieldset > input {
+    background-color: rgba(252, 253, 249, 0.767);
+    border: 1px solid gray;
+  }
