@@ -15,6 +15,10 @@ export default class Tasks {
         return Tasks.allTask
     }
 
+    static deleteTask(index) {
+        Tasks.allTask.splice(index, 1)
+    }
+
     static returnTaskDOM(task, index) { 
         let itemList = document.createElement("li")
         let itemInput = document.createElement("input")
@@ -29,6 +33,7 @@ export default class Tasks {
         let itemDescription = document.createElement("span")
     
         itemList.classList.add("task-item")
+        itemList.dataset.indexNum = index
         itemInput.type = "checkbox"
         itemInput.id = `toggle${index}`
         itemInput.classList.add("task-input")
