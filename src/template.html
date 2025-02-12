@@ -38,16 +38,17 @@
         <button id="add-task" class="add-button">
             <img src="svg/plus.svg" alt="add task">
         </button>
-        <section id="content-projects" class="projects-display">
-            <ul class="task-example">
+        <section class="projects-display">
+            <ul id="content-projects" class="task-example">
                 <li class="task-item">
                     <input type="checkbox" name="" id="toggle" class="task-input">
                     <label for="toggle" class="task-visisble">
                         <span class="task-title">title</span>
                         <span class="task-due">Due-date</span>
+                        <span class="task-priority">Priority</span>
                         <div class="icons">
-                            <button>Delete</button>
-                            <button>Edit</button>
+                            <button data-task-btn="delete">Delete</button>
+                            <button data-task-btn="edit">Edit</button>
                         </div>
                     </label>
                     <div class="task-expand">
