@@ -205,12 +205,24 @@
     transform: rotate(0.5turn);
   }
 
-  .modal {
+  dialog {
+    margin: auto;
     background-color: rgba(230, 248, 214, 0.808);
     border: none;
   }
 
-  fieldset > input {
+  fieldset > input, fieldset > textarea {
     background-color: rgba(252, 253, 249, 0.767);
     border: 1px solid gray;
+    display: flex;
+    width: 30vw;
+  }
+
+  #form-description {
+    height: 8rem;
+  }
+
+  .radio-buttons {
+    display: flex;
+    justify-content: space-around;
   }
