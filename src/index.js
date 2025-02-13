@@ -2,12 +2,6 @@ import "./styles.css";
 import Tasks from "./tasks.js"
 import { compareAsc } from 'date-fns';
 
-const taskExample1 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "default")
-const taskExample2 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "default")
-const taskExample3 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "default")
-const taskExample4 = new Tasks("title-example", new Date(2990, 10, 10), "decription-example", "high-example", "default")
-const taskExample5 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "test")
-const taskExample6 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "test")
 
 class Display {
     static refreshDisplayContent(project="default") {
@@ -45,6 +39,7 @@ class Display {
                 const taskElem = event.target.parentElement.parentElement.parentElement
                 const indexOfTask = taskElem.dataset.indexNum
                 Tasks.deleteTask(indexOfTask)
+                Local.saveLocalStorage()
                 Display.refreshDisplayContent()
             case "edit":
                 break
@@ -76,6 +71,7 @@ class Display {
             const project = form.querySelector("#form-select-project").value
             new Tasks(title, due, description, priority, project)
             Display.refreshDisplayContent()
+            Local.saveLocalStorage()
         })
     }
 
@@ -97,6 +93,7 @@ class Display {
 
             Display.addProjectsToForm()
             Display.refreshProjectsDisplay()
+            Local.saveLocalStorage()
         })
     }
 
@@ -151,6 +148,23 @@ class Display {
     }
 }
 
+class Local {
+    static saveLocalStorage() {
+        const allTasksStringify = JSON.stringify(Tasks.allTask)
+        const projectsStringify = JSON.stringify(Tasks.projects)
+        localStorage.setItem("allTasks", allTasksStringify)
+        localStorage.setItem("projects", projectsStringify)
+    }
+
+    static loadLocalStorage() {
+        const allTasksParse = JSON.parse(localStorage.getItem("allTasks"))
+        const projectsParse = JSON.parse(localStorage.getItem("projects"))
+        Tasks.allTask = allTasksParse
+        Tasks.projects = projectsParse
+    }
+}
+
+Local.loadLocalStorage()
 Tasks.compareDate()
 Display.refreshDisplayContent()
 Display.taskButtonEvents()
@@ -159,3 +173,6 @@ Display.projectModal()
 Display.addTask()
 Display.navButtonEvents()
 Display.addProject()
+
+
+console.log(Tasks.returnAllTask())
