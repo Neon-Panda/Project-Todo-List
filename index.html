@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Todo List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <nav id="sidebar" class="sidebar-nav">
+        <section id="tasks" class="sidebar-task">
+            <h2 class="nav-title">Tasks</h2>
+            <button class="sidebar-button" data-nav-btn="all">
+                <img src="ee6212a969177ce5eefa.svg" alt="show all task">
+                <p>All</p>
+            </button>
+            <button class="sidebar-button" data-nav-btn="completed">
+                <img src="899d51acd83c78d50625.svg" alt="show completed task">
+                <p>Completed</p>
+            </button>
+            <button class="sidebar-button" data-nav-btn="overdue">
+                <img src="899d51acd83c78d50625.svg" alt="show overdue task">
+                <p>Overdue</p>
+            </button>
+        </section>
+        <section id="projects" class="sidebar-projects">
+            <h2 class="nav-title">Projects</h2>
+            <button class="sidebar-button" data-nav-btn="project-default">
+                <img src="34d27e75ddb5f2c98c78.svg" alt="default project">
+                <p>Default</p>
+            </button>
+            <button id="add-project" class="sidebar-button" data-nav-btn="add-project">
+                <img src="2cc84520eb00ddcc876b.svg" alt="add new project">
+                <p>Add Project</p>
+            </button>
+        </section>
+    </nav>
+    <section id="content" class="content-section">
+        <h1 id="intro" class="header-title">Example title</h1>
+        <button id="add-task" class="add-button">
+            <img src="2cc84520eb00ddcc876b.svg" alt="add task">
+        </button>
+        <section class="projects-display">
+            <ul id="content-projects" class="task-example">
+                <li class="task-item">
+                    <input type="checkbox" name="" id="toggle" class="task-input">
+                    <label for="toggle" class="task-visisble">
+                        <span class="task-title">title</span>
+                        <span class="task-due">Due-date</span>
+                        <span class="task-priority">Priority</span>
+                        <div class="icons">
+                            <button data-task-btn="delete">Delete</button>
+                            <button data-task-btn="edit">Edit</button>
+                        </div>
+                    </label>
+                    <div class="task-expand">
+                        <span>Lorem ipsum dolor sit amet.</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <dialog id="modal-form" class="modal">
+        <form id="form" action="" class="form-template" method="dialog">
+            <fieldset>
+                <label for="form-title">Task title</label>
+                <input type="text" name="form-title" id="form-title">
+            </fieldset>
+            <fieldset>
+                <label for="form-due-date">Due date</label>
+                <input type="date" name="form-due-date" id="form-due-date">
+            </fieldset>
+            <fieldset>
+                <textarea name="form-description" id="form-description"></textarea>
+            </fieldset>
+            <fieldset class="radio-buttons">
+                <div>
+                    <input type="radio" name="priority" id="high" value="high">
+                    <label for="high">High</label>
+                </div>
+                <div>
+                    <input type="radio" name="priority" id="medium" value="medium">
+                    <label for="medium">Medium</label>
+                </div>
+                <div>
+                    <input type="radio" name="priority" id="low" value="low">
+                    <label for="low">Low</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <label for="form-select-project"></label>
+                <select name="projects" id="form-select-project">
+                    <option value="default">Default</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <button type="submit" id="task-submit">Submit</button>
+            </fieldset>
+        </form>
+    </dialog>
+
+    <dialog id="modal-add-project">
+        <form id="project-form" action="" class="form-template-project" method="dialog">
+            <fieldset>
+                <label for="project-name">New project name</label>
+                <input type="text" name="project-name" id="project-name">
+            </fieldset>
+        </form>
+    </dialog>
+</body>
+</html>
