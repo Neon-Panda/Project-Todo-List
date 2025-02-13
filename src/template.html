@@ -9,25 +9,26 @@
     <nav id="sidebar" class="sidebar-nav">
         <section id="tasks" class="sidebar-task">
             <h2 class="nav-title">Tasks</h2>
-            <button class="sidebar-button">
+            <button class="sidebar-button" data-nav-btn="all">
                 <img src="./svg/all.svg" alt="show all task">
                 <p>All</p>
-                <p class="count">0</p>
             </button>
-            <button class="sidebar-button">
+            <button class="sidebar-button" data-nav-btn="completed">
                 <img src="./svg/completed.svg" alt="show completed task">
                 <p>Completed</p>
-                <p class="count">0</p>
+            </button>
+            <button class="sidebar-button" data-nav-btn="overdue">
+                <img src="./svg/completed.svg" alt="show overdue task">
+                <p>Overdue</p>
             </button>
         </section>
         <section id="projects" class="sidebar-projects">
             <h2 class="nav-title">Projects</h2>
-            <button class="sidebar-button">
+            <button class="sidebar-button" data-nav-btn="project-default">
                 <img src="svg/project.svg" alt="default project">
                 <p>Default</p>
-                <p class="count">0</p>
             </button>
-            <button class="sidebar-button">
+            <button id="add-project" class="sidebar-button" data-nav-btn="add-project">
                 <img src="svg/plus.svg" alt="add new project">
                 <p>Add Project</p>
             </button>
@@ -58,7 +59,7 @@
             </ul>
         </section>
     </section>
-    <dialog id="modal" class="modal">
+    <dialog id="modal-form" class="modal">
         <form id="form" action="" class="form-template" method="dialog">
             <fieldset>
                 <label for="form-title">Task title</label>
@@ -86,10 +87,22 @@
                 </div>
             </fieldset>
             <fieldset>
-
+                <label for="form-select-project"></label>
+                <select name="projects" id="form-select-project">
+                    <option value="default">Default</option>
+                </select>
             </fieldset>
             <fieldset>
                 <button type="submit" id="task-submit">Submit</button>
+            </fieldset>
+        </form>
+    </dialog>
+
+    <dialog id="modal-add-project">
+        <form id="project-form" action="" class="form-template-project" method="dialog">
+            <fieldset>
+                <label for="project-name">New project name</label>
+                <input type="text" name="project-name" id="project-name">
             </fieldset>
         </form>
     </dialog>

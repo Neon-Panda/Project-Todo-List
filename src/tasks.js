@@ -1,6 +1,7 @@
 import { format, compareAsc } from "date-fns"
 export default class Tasks {
     static allTask = [];
+    static projects = [];
 
     constructor(title, due, description, priority, project) {
         this.title = title
@@ -24,6 +25,13 @@ export default class Tasks {
     static checkOverdue(task) {
         const overdue = compareAsc(task.due, new Date())
         overdue === -1 ? task.overdue = true : task.overdue = false
+    }
+
+    static compareDate() {
+        const allTask = Tasks.returnAllTask()
+        allTask.forEach(task => {
+            Tasks.checkOverdue(task)
+        });
     }
 
     static returnTaskDOM(task, index) { 
