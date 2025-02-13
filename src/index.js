@@ -1,21 +1,37 @@
 import "./styles.css";
 import Tasks from "./tasks.js"
+import { compareAsc } from 'date-fns';
 
-const taskExample1 = new Tasks("title-example", "due-date-example", "decription-example", "high-example", "default-example")
-const taskExample2 = new Tasks("title-example", "due-date-example", "decription-example", "high-example", "default-example")
-const taskExample3 = new Tasks("title-example", "due-date-example", "decription-example", "high-example", "default-example")
-const taskExample4 = new Tasks("title-example", "due-date-example", "decription-example", "high-example", "default-example")
-const taskExample5 = new Tasks("title-example", "due-date-example", "decription-example", "high-example", "default-example")
-const taskExample6 = new Tasks("title-example", "due-date-example", "decription-example", "high-example", "default-example")
+const taskExample1 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "default")
+const taskExample2 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "default")
+const taskExample3 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "default")
+const taskExample4 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "default")
+const taskExample5 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "test")
+const taskExample6 = new Tasks("title-example", new Date(1990, 10, 10), "decription-example", "high-example", "test")
 
 refreshDisplay()
 taskButtonEvents()
 
-function refreshDisplay() {
+function refreshDisplay(project="default") {
     const allTasks = Tasks.returnAllTask();
+    let filteredTask = []
+    switch(project) {
+        case "showOverdue":
+            filteredTask = allTasks.filter((task) => task.overdue)
+            break
+        case "showCompleted":
+            filteredTask = allTasks.filter((task) => task.completed)
+            break
+        case "showAll":
+            filteredTask = allTasks
+            break
+        default:
+            filteredTask = allTasks.filter((task) => task.project === project)
+            break
+    }
     const taskDisplay = document.querySelector("#content-projects")
     taskDisplay.innerHTML = ""
-    allTasks.forEach((task, index) => {
+    filteredTask.forEach((task, index) => {
     task.uniqueID = index
     const taskDOM = Tasks.returnTaskDOM(task, index)
     taskDisplay.appendChild(taskDOM)
@@ -64,3 +80,11 @@ function addTask() {
     })
 }
 addTask()
+
+function compareDate() {
+    const allTask = Tasks.returnAllTask()
+    allTask.forEach(task => {
+        Tasks.checkOverdue(task)
+    });
+}
+compareDate()

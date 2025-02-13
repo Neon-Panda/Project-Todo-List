@@ -1,3 +1,4 @@
+import { format, compareAsc } from "date-fns"
 export default class Tasks {
     static allTask = [];
 
@@ -8,6 +9,7 @@ export default class Tasks {
         this.priority = priority
         this.project = project
         this.completed = false
+        this.overdue = false
         Tasks.allTask.push(this)
     }
 
@@ -17,6 +19,11 @@ export default class Tasks {
 
     static deleteTask(index) {
         Tasks.allTask.splice(index, 1)
+    }
+
+    static checkOverdue(task) {
+        const overdue = compareAsc(task.due, new Date())
+        overdue === -1 ? task.overdue = true : task.overdue = false
     }
 
     static returnTaskDOM(task, index) { 
@@ -48,7 +55,7 @@ export default class Tasks {
         itemDescriptionDiv.classList.add("task-expand")
     
         itemSpanTitle.textContent = task.title
-        itemSpanDue.textContent = task.due
+        itemSpanDue.textContent = format(task.due, "MMMM do yyyy")
         itemSpanPriority.textContent = task.priority
         itemDescription.textContent = task.description
         itemDelteBtn.textContent = "Delete"
@@ -64,6 +71,8 @@ export default class Tasks {
         itemList.appendChild(itemInput)
         itemList.appendChild(itemLabel)
         itemList.appendChild(itemDescriptionDiv)
+
+        if (task.due) itemList.dataset.overdue = true
     
         return itemList
     }
